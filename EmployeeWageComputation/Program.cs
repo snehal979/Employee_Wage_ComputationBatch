@@ -9,8 +9,10 @@ namespace EmployeeWageComputation
             Console.WriteLine("WELCOME THE EMPLOYEE WAGE PROGRAM");
             //Uc1 
             Random random = new Random(); //Random method
-            int empAttaindance = random.Next(2);//0 or 1 print
+
             //Uc2 Calculate Daily Wage
+            //Uc3 Calculate Daily Wage for Part time
+            int empAttaindance = random.Next(3);//0 or 1 or 2 print
             //variable
             string type = "";
             int Per_Daily_Wage = 20;
@@ -20,9 +22,14 @@ namespace EmployeeWageComputation
                 type ="Absent";
                 Daily_Hour = 0;
             }
+            else if (empAttaindance == 1)
+            {
+                type ="PartTimeJob";
+                Daily_Hour = 4;
+            }
             else
             {
-                type ="Present";
+                type ="FullTimeJob";
                 Daily_Hour = 8;
             }
             int dailyWage = Daily_Hour * Per_Daily_Wage;
