@@ -14,13 +14,15 @@ namespace EmployeeWageComputation
             //Uc3 Calculate Daily Wage for Part time
             //Uc4 Using Switch case
             //Uc 5 Calculate Wage for month (for loop ) due to using final condition
+            //Uc6 calculated Wage for Condition (total hour < 100)
             //variable
             string type = "";
             int Rate_Per_Daily_Wage = 20;
             int Daily_Hour = 0;
             int Working_Day = 20;
             int totaldailyWage = 0;
-            for (int i = 1; i<=Working_Day; i++)
+            int Working_Hour = 100;
+            for (int i = 0; totaldailyWage < Working_Hour && i <= Working_Day; i++)
             {
                 int empAttaindance = random.Next(3);//0 or 1 or 2 print
                 switch (empAttaindance)
