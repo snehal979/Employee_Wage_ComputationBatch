@@ -9,7 +9,7 @@ namespace EmployeeWageComputation
     /// <summary>
     /// Uc8 Class Method 
     /// </summary>
-    public class EmplyeeWageMain 
+    public class EmplyeeWageMain : IComputerWage
     {
         int numOfCompany =0;
         EmpWageBuilder[] employeeArray;
