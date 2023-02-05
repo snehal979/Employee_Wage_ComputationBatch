@@ -9,16 +9,17 @@ namespace EmployeeWageComputation
     /// <summary>
     /// Uc8 Class Method 
     /// </summary>
-    public class EmplyeeWageMain
+    public class EmplyeeWageMain 
     {
+        EmpWageBuilder emp;
         Random random = new Random(); //Random method
-        public void CalcilatedTotalWage(int working_Hour, int working_Day, int rate_Per_Daily_Wage)
+        public void CalcilatedTotalWage(string companyName, int working_Hour, int working_Day, int rate_Per_Daily_Wage)
         {
             //variable
             string type = "";
             int Daily_Hour = 0;
             int totaldailyWage = 0;
-
+            emp = new EmpWageBuilder(companyName, working_Hour, working_Day, rate_Per_Daily_Wage);
             for (int i = 0; totaldailyWage < working_Hour && i <= working_Day; i++)
             {
                 int empAttaindance = random.Next(3);//0 or 1 or 2 print
@@ -40,7 +41,7 @@ namespace EmployeeWageComputation
                 totaldailyWage = totaldailyWage + Daily_Hour;
             }
             int Total_Month_Wage = totaldailyWage * rate_Per_Daily_Wage;
-            Console.WriteLine("{0} total month salary ", Total_Month_Wage);
+            Console.WriteLine(" Total month salary :"+ Total_Month_Wage +" "+"Company name : "+companyName);
         }
     }
 }
