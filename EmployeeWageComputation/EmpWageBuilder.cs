@@ -32,7 +32,7 @@ namespace EmployeeWageComputation
         }
         public string toString()
         {
-            return " Total month salary :"+ this.Total_Month_Wage +"Company name : "+this.companyName;
+            return " Total month salary :"+ this.Total_Month_Wage +" Company name : "+this.companyName;
         }
     }
 }

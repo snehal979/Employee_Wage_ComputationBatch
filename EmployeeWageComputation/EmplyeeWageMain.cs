@@ -12,24 +12,24 @@ namespace EmployeeWageComputation
     public class EmplyeeWageMain : IComputerWage
     {
         int numOfCompany =0;
-        EmpWageBuilder[] employeeArray;
+        LinkedList<EmpWageBuilder> employeesList;
         Random random = new Random(); //Random method
         public EmplyeeWageMain()
         {
-            employeeArray = new EmpWageBuilder[10];
+            this.employeesList = new LinkedList<EmpWageBuilder>();
         }
         public void addComputerWage(string companyName, int working_Hour, int working_Day, int rate_Per_Daily_Wage)
         {
-            employeeArray[this.numOfCompany]  = new EmpWageBuilder(companyName, working_Hour, working_Day, rate_Per_Daily_Wage);
-            numOfCompany++;
+           EmpWageBuilder empWageBuilder  = new EmpWageBuilder(companyName, working_Hour, working_Day, rate_Per_Daily_Wage);
+            this.employeesList.AddLast(empWageBuilder);
         }
 
         public void computerWageEmployee()
         {
-            for(int i =0;i<numOfCompany; i++)
+            foreach(EmpWageBuilder data in this.employeesList)
             {
-                employeeArray[i].ToSetEmpWage(this.computerWageEmployee(this.employeeArray[i]));
-                Console.WriteLine(this.employeeArray[i].toString());
+                data.ToSetEmpWage(this.computerWageEmployee(data));
+                Console.WriteLine(data.toString());
             }
             
         }
