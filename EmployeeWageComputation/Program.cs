@@ -12,8 +12,9 @@ namespace EmployeeWageComputation
         {
             Console.WriteLine("WELCOME THE EMPLOYEE WAGE PROGRAM");
             EmplyeeWageMain obj= new EmplyeeWageMain();
-            obj.CalcilatedTotalWage("JIO", 90, 20, 10);
-            obj.CalcilatedTotalWage("TATA",100, 22, 20);
+            obj.addComputerWage("JIO", 90, 20, 10);
+            obj.addComputerWage("TATA",100, 22, 20);
+            obj.computerWageEmployee();
             Console.ReadLine();
 
         }

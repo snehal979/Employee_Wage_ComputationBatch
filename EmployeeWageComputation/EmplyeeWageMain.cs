@@ -11,16 +11,35 @@ namespace EmployeeWageComputation
     /// </summary>
     public class EmplyeeWageMain 
     {
-        EmpWageBuilder emp;
+        int numOfCompany =0;
+        EmpWageBuilder[] employeeArray;
         Random random = new Random(); //Random method
-        public void CalcilatedTotalWage(string companyName, int working_Hour, int working_Day, int rate_Per_Daily_Wage)
+        public EmplyeeWageMain()
+        {
+            employeeArray = new EmpWageBuilder[10];
+        }
+        public void addComputerWage(string companyName, int working_Hour, int working_Day, int rate_Per_Daily_Wage)
+        {
+            employeeArray[this.numOfCompany]  = new EmpWageBuilder(companyName, working_Hour, working_Day, rate_Per_Daily_Wage);
+            numOfCompany++;
+        }
+
+        public void computerWageEmployee()
+        {
+            for(int i =0;i<numOfCompany; i++)
+            {
+                employeeArray[i].ToSetEmpWage(this.computerWageEmployee(this.employeeArray[i]));
+                Console.WriteLine(this.employeeArray[i].toString());
+            }
+            
+        }
+        public int computerWageEmployee(EmpWageBuilder empWage)
         {
             //variable
             string type = "";
             int Daily_Hour = 0;
             int totaldailyWage = 0;
-            emp = new EmpWageBuilder(companyName, working_Hour, working_Day, rate_Per_Daily_Wage);
-            for (int i = 0; totaldailyWage < working_Hour && i <= working_Day; i++)
+            for (int i = 0; totaldailyWage < empWage.working_Hour && i <= empWage.working_Day; i++)
             {
                 int empAttaindance = random.Next(3);//0 or 1 or 2 print
                 switch (empAttaindance)
@@ -40,8 +59,9 @@ namespace EmployeeWageComputation
                 }
                 totaldailyWage = totaldailyWage + Daily_Hour;
             }
-            int Total_Month_Wage = totaldailyWage * rate_Per_Daily_Wage;
-            Console.WriteLine(" Total month salary :"+ Total_Month_Wage +" "+"Company name : "+companyName);
+            int Total_Month_Wage = totaldailyWage * empWage.rate_Per_Daily_Wage;
+            //Console.WriteLine(" Total month salary :"+ Total_Month_Wage +" "+"Company name : "+empWage.companyName);
+            return Total_Month_Wage;
         }
     }
 }
