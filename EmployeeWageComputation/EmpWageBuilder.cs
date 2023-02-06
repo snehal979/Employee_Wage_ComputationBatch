@@ -30,7 +30,7 @@ namespace EmployeeWageComputation
         {
             return this.Total_Month_Wage = Total_Month_Wage;
         }
-        public string toString()
+        public override string ToString()
         {
             return " Total month salary :"+ this.Total_Month_Wage +" Company name : "+this.companyName;
         }

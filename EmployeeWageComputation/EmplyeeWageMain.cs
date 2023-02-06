@@ -13,15 +13,18 @@ namespace EmployeeWageComputation
     {
         int numOfCompany =0;
         LinkedList<EmpWageBuilder> employeesList;
+        Dictionary<string, EmpWageBuilder> employeesDictionary;
         Random random = new Random(); //Random method
         public EmplyeeWageMain()
         {
             this.employeesList = new LinkedList<EmpWageBuilder>();
+            employeesDictionary = new Dictionary<string, EmpWageBuilder>();
         }
         public void addComputerWage(string companyName, int working_Hour, int working_Day, int rate_Per_Daily_Wage)
         {
            EmpWageBuilder empWageBuilder  = new EmpWageBuilder(companyName, working_Hour, working_Day, rate_Per_Daily_Wage);
             this.employeesList.AddLast(empWageBuilder);
+            this.employeesDictionary.Add(companyName, empWageBuilder);
         }
 
         public void computerWageEmployee()
@@ -29,9 +32,15 @@ namespace EmployeeWageComputation
             foreach(EmpWageBuilder data in this.employeesList)
             {
                 data.ToSetEmpWage(this.computerWageEmployee(data));
-                Console.WriteLine(data.toString());
+                Console.WriteLine(data);
             }
-            
+            //Display Dictionary
+            foreach(KeyValuePair<string,EmpWageBuilder> data1 in employeesDictionary)
+            {
+
+                Console.WriteLine(data1.Key +" "+data1.Value);
+                
+            }
         }
         public int computerWageEmployee(EmpWageBuilder empWage)
         {
