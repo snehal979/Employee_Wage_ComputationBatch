@@ -18,7 +18,7 @@ namespace EmployeeWageComputation
         public EmplyeeWageMain()
         {
             this.employeesList = new LinkedList<EmpWageBuilder>();
-            employeesDictionary = new Dictionary<string, EmpWageBuilder>();
+           this.employeesDictionary = new Dictionary<string, EmpWageBuilder>();
         }
         public void addComputerWage(string companyName, int working_Hour, int working_Day, int rate_Per_Daily_Wage)
         {
@@ -33,13 +33,6 @@ namespace EmployeeWageComputation
             {
                 data.ToSetEmpWage(this.computerWageEmployee(data));
                 Console.WriteLine(data);
-            }
-            //Display Dictionary
-            foreach(KeyValuePair<string,EmpWageBuilder> data1 in employeesDictionary)
-            {
-
-                Console.WriteLine(data1.Key +" "+data1.Value);
-                
             }
         }
         public int computerWageEmployee(EmpWageBuilder empWage)
@@ -71,6 +64,15 @@ namespace EmployeeWageComputation
             int Total_Month_Wage = totaldailyWage * empWage.rate_Per_Daily_Wage;
             //Console.WriteLine(" Total month salary :"+ Total_Month_Wage +" "+"Company name : "+empWage.companyName);
             return Total_Month_Wage;
+        }
+        /// <summary>
+        /// Uc14 Ability to get the Total Wage when queried by Company.
+        /// </summary>
+        /// <param name="company"></param>
+        /// <returns></returns>
+        public int ToGetEmpWage(string company)
+        {
+            return this.employeesDictionary[company].Total_Month_Wage;
         }
     }
 }

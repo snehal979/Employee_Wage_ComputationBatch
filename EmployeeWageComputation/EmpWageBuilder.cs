@@ -11,6 +11,7 @@ namespace EmployeeWageComputation
     {
         public void addComputerWage(string companyName, int working_Hour, int working_Day, int rate_Per_Daily_Wage);
         public void computerWageEmployee();
+        public int ToGetEmpWage(string Company);
     }
     public class EmpWageBuilder
     {
